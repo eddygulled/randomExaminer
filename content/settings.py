@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-gln9-*a9$dr74@-t=^sf(+g7rpistbb6mn11bt=u*eop#e=cq+
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'randomexaminer.pythonanywhere.com/'
+    'randomexaminer.pythonanywhere.com'
 ]
 
 
