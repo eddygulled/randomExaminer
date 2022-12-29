@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page Content  -->
+<div id="content" class="p-0 p-md-5 pt-5">
+  <h2 class="mb-4">{{page_subject}} #{{question_count}}</h2>
+  <div class="row">
+
+    {%for question in questions %}
+    <div class="col-sm-12">
+      <div class="container">
+        <p class="text-dark display-5">{{question.question}}</p>
+        <p class="text-muted">{{question.answer}}</p>
+        <p>
+          <a href="{% url 'edit' question.id %}" class="btn text-primary">Edit</a>
+          <a href="#" class="btn text-primary" data-toggle="collapse" data-target="#img{{question.id}}">Image</a>
+        </p>
+        <div class="jumbotron collapse" id="img{{question.id}}" style="height:200px;"><img src="/media/{{question.image}}" alt="" srcset=""class="img-fluid" id="img{{question.id}}"></div>
+        
+      </div>
+      <hr />
+    </div>
+    {%endfor%}
+  </div>
+</div>
+
+<nav id="sidebar">
+  <div class="p-4 pt-5">
+    <div class="mb-5">
+      <h5>Quick Actions</h5>
+      <div class="tagcloud">
+        <a href="{% url 'add' %}" class="tag-cloud-link">Add Question</a>
+        <a href="{% url 'add_subject' %}" class="tag-cloud-link">Add Subject</a>
+      </div>
+    </div>
+    <h5>Subjects</h5>
+    <ul class="list-unstyled components mb-5">
+      <li>
+        <a href="/">All</a>
+      </li>
+      {%for subject in subjects_list %}
+      <li>
+        <a href="{% url 'subject' subject.id %}">{{subject.name}}</a>
+      </li>
+      {%endfor%}
+    </ul>
+  </div>
+</nav>
+
+{%endblock%}
