@@ -12,7 +12,7 @@
     <div class="col-sm-12">
       <div class="container">
         <p class="text-dark display-5">{{question.question}}</p>
-        <p class="text-muted">{{question.answer}}</p>
+        <pre class="text-muted">{{question.answer}}</pre>
         <p>
           <a href="{% url 'edit' question.id %}" class="btn text-primary">Edit</a>
           <a href="#" class="btn text-primary" data-toggle="collapse" data-target="#img{{question.id}}">Image</a>
